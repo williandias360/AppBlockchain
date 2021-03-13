@@ -1,5 +1,6 @@
 package br.com.db1.blockchain.repositories.network
 
+import br.com.db1.blockchain.repositories.network.services.BlockChainServices
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -21,17 +22,14 @@ class RetrofitConfiguration() {
             .baseUrl(baseUrl)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(
-                GsonConverterFactory.create(
-                    GsonBuilder()
-                        .serializeNulls()
-                        .setLenient()
-                        .excludeFieldsWithoutExposeAnnotation()
-                        .create()
-                )
+                GsonConverterFactory.create()
             )
             .client(okHttpClient)
             .build()
     }
+
+    val blockChainServices:BlockChainServices
+        get() =retrofit.create(BlockChainServices::class.java)
 
     companion object {
         private const val timeOut = 60L

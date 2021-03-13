@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Blockchain</string>
+    <string name="txt_merchant_price">Preço de mercado</string>
+    <string name="txt_merchant_price_description">O preço médio de mercado em dólares americanos nas principais bolsas de bitcoin</string>
+    <string name="txt_fail_get_stats">Desculpe\nNão foi possível obter a cotação atual</string>
 </resources>
